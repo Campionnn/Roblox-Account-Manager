@@ -99,7 +99,7 @@ namespace RBX_Alt_Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Roblox Account Manager]
+        ///   Looks up a localized string similar to [RobloxAccountManager]
         ///AccountsBG=#1E1F28
         ///AccountsFG=#FFFFFF
         ///ButtonsBG=#292929
