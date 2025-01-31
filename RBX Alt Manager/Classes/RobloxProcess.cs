@@ -42,7 +42,7 @@ namespace RBX_Alt_Manager.Classes
             {
                 using (HttpClient Client = new HttpClient())
                 {
-                    string MatchList = await Client.GetStringAsync("https://github.com/ic3w0lf22/Roblox-Account-Manager/raw/master/RBX%20Alt%20Manager/Resources/WatcherRegexMatches.txt");
+                    string MatchList = await Client.GetStringAsync("https://github.com/campionnn/Roblox-Account-Manager/raw/master/RBX%20Alt%20Manager/Resources/WatcherRegexMatches.txt");
 
                     foreach (string Line in MatchList.Split('\n'))
                     {

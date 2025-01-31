@@ -950,7 +950,7 @@ namespace RBX_Alt_Manager
                 return Reply($"Launched {Account} to {PlaceId}", true);
             }
 
-            if (Method == "FollowUser") // https://github.com/ic3w0lf22/Roblox-Account-Manager/pull/52
+            if (Method == "FollowUser")
             {
                 if (!WebServer.Get<bool>("AllowLaunchAccount")) return Reply("Method `FollowUser` not allowed", false, 401, "Method not allowed");
 

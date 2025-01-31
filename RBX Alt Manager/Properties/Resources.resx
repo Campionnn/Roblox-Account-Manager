@@ -172,48 +172,6 @@ TextBoxesBC=#282828</value>
   <data name="handle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\handle.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NexusLoader" xml:space="preserve">
-    <value>Nexus_Version = 104
-
-local FileName, Success, Error, Function = 'ic3w0lf22.Nexus.lua'
-
-if isfile and readfile and isfile(FileName) then -- Execute ASAP, update later.
-	Function, Error = loadstring(readfile(FileName), 'Nexus')
-
-	if Function then
-		Function()
-
-		if Nexus then Nexus:Connect() end
-	end
-end
-
-for i=1, 10 do
-	Success, Error = pcall(function()
-		local Response = (http_request or (syn and syn.request)) { Method = 'GET', Url = 'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua' }
-
-		if not Response.Success then error(('HTTP Error %s'):format(Response.StatusCode)) end
-
-		Function, Error = loadstring(Response.Body, 'Nexus')
-
-		if not Function then error(Error) end
-
-		if isfile and not isfile(FileName) then
-			writefile(FileName, Response.Body)
-		end
-		
-		if not Nexus then -- Nexus was already ran earlier, this will update the existing file to the latest version instead of re-creating Nexus
-			Function()
-			Nexus:Connect()
-		end
-	end)
-	
-	if Success then break else task.wait(1) end
-end
-
-if not Success and Error then
-	(messagebox or print)(('Nexus encountered an error while launching!\n\n%s'):format(Error), 'Roblox Account Manager', 0)
-end</value>
-  </data>
   <data name="libsodium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libsodium.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -233,6 +191,6 @@ end</value>
     <value>&lt;style&gt;*{{color:rgba(232,230,227,1);font-family:Arial,Helvetica,sans-serif}}a{{color:#4892f1}}li{{font-size:20px}}body{{background-color:#131516}}code{{background-color:rgba(255,255,255,.12);font-size:18px}}&lt;/style&gt;&lt;script crossorigin=anonymous integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="referrerpolicy=no-referrer src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js&gt;&lt;/script&gt;&lt;script crossorigin=anonymous integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="referrerpolicy=no-referrer src=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js&gt;&lt;/script&gt;&lt;link crossorigin=anonymous href=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA=="referrerpolicy=no-referrer rel=stylesheet&gt;&lt;div style="padding:10px 25px"&gt;&lt;h1&gt;How to manually install {0} for Roblox Account Manager&lt;/h1&gt;&lt;ol&gt;&lt;li&gt;Close Roblox Account Manager first&lt;li&gt;Download the {0} ZIP file by clicking &lt;a href={1}&gt;here&lt;/a&gt; or by going to &lt;code&gt;{1}&lt;/code&gt;&lt;li&gt;Open the ZIP file and extract the folder named “{2}” to &lt;code&gt;{3}&lt;/code&gt;&lt;li&gt;Relaunch Roblox Account Manager&lt;/ol&gt;&lt;h2&gt;&lt;a href="https://youtu.be/yC5g22aXYlQ"&gt;Tutorial Video&lt;/a&gt;&lt;/h2&gt;&lt;iframe width="1366" height="768" src="https://www.youtube.com/embed/yC5g22aXYlQ" title="how to manually install chromium for account manager" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;script&gt;toastr.options.timeOut=2e3,toastr.options.preventDuplicates=!0,toastr.options.positionClass="toast-top-right",$("code").each((function(){{$(this).on("click",(function(){{!async function(t){{await navigator.clipboard.writeText(t),toastr.success("Copied to clipboard!")}}($(this)[0].innerText)}}))}}));&lt;/script&gt;</value>
   </data>
   <data name="CefSharpDownload" xml:space="preserve">
-    <value>https://github.com/ic3w0lf22/Roblox-Account-Manager/releases/download/3.5.2/CEF.zip</value>
+    <value>https://github.com/campionnn/Roblox-Account-Manager/releases/download/3.7.3/CEF.zip</value>
   </data>
 </root>

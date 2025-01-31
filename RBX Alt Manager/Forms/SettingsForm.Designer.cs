@@ -76,7 +76,6 @@ namespace RBX_Alt_Manager.Forms
             this.FPSCapLabel = new System.Windows.Forms.Label();
             this.MaxFPSValue = new System.Windows.Forms.NumericUpDown();
             this.OverrideWithCustomCB = new System.Windows.Forms.CheckBox();
-            this.ForceUpdateButton = new System.Windows.Forms.Button();
             this.CustomClientSettingsDialog = new System.Windows.Forms.OpenFileDialog();
             this.SettingsLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaunchDelayNumber)).BeginInit();
@@ -574,7 +573,6 @@ namespace RBX_Alt_Manager.Forms
             this.MiscellaneousFlowPanel.Controls.Add(this.FPSCapLabel);
             this.MiscellaneousFlowPanel.Controls.Add(this.MaxFPSValue);
             this.MiscellaneousFlowPanel.Controls.Add(this.OverrideWithCustomCB);
-            this.MiscellaneousFlowPanel.Controls.Add(this.ForceUpdateButton);
             this.MiscellaneousFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MiscellaneousFlowPanel.Location = new System.Drawing.Point(3, 3);
             this.MiscellaneousFlowPanel.Name = "MiscellaneousFlowPanel";
@@ -689,16 +687,6 @@ namespace RBX_Alt_Manager.Forms
             this.OverrideWithCustomCB.UseVisualStyleBackColor = true;
             this.OverrideWithCustomCB.CheckedChanged += new System.EventHandler(this.OverrideWithCustomCB_CheckedChanged);
             // 
-            // ForceUpdateButton
-            // 
-            this.ForceUpdateButton.Location = new System.Drawing.Point(15, 84);
-            this.ForceUpdateButton.Name = "ForceUpdateButton";
-            this.ForceUpdateButton.Size = new System.Drawing.Size(269, 23);
-            this.ForceUpdateButton.TabIndex = 16;
-            this.ForceUpdateButton.Text = "Force Update";
-            this.ForceUpdateButton.UseVisualStyleBackColor = true;
-            this.ForceUpdateButton.Click += new System.EventHandler(this.ForceUpdateButton_Click);
-            // 
             // CustomClientSettingsDialog
             // 
             this.CustomClientSettingsDialog.DefaultExt = "json";
@@ -783,6 +771,5 @@ namespace RBX_Alt_Manager.Forms
         private System.Windows.Forms.NumericUpDown PresenceUpdateRateNum;
         private System.Windows.Forms.OpenFileDialog CustomClientSettingsDialog;
         private System.Windows.Forms.CheckBox AutoCookieRefreshCB;
-        private System.Windows.Forms.Button ForceUpdateButton;
     }
 }

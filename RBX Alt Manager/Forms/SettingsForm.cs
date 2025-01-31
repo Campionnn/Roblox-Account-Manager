@@ -344,16 +344,6 @@ namespace RBX_Alt_Manager.Forms
             AccountManager.IniSettings.Save("RAMSettings.ini");
         }
 
-        private void ForceUpdateButton_Click(object sender, EventArgs e)
-        {
-            if (!Utilities.YesNoPrompt("Auto Update", "Are you sure you want to update?", "", false)) return;
-
-            string AFN = Path.Combine(Directory.GetCurrentDirectory(), "Auto Update.exe");
-            File.WriteAllBytes(AFN, File.ReadAllBytes(Application.ExecutablePath));
-            Process.Start(AFN, "-update");
-            Environment.Exit(1);
-        }
-
         #endregion
 
         #region Themes

@@ -96,38 +96,6 @@ namespace RBX_Alt_Manager
                 }
             }
 
-            if (Arguments.Length == 1 && Arguments[0] == "-update")
-            {
-                if (!IsAutoUpdater)
-                {
-                    string AFN = Path.Combine(Directory.GetCurrentDirectory(), "Auto Update.exe");
-
-                    File.WriteAllBytes(AFN, File.ReadAllBytes(Application.ExecutablePath));
-                    Process.Start(AFN, "-update");
-                    Environment.Exit(2);
-                }
-
-                static void StartUpdater() {
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Auto_Update.AutoUpdater());
-                }
-
-                if (!Elevated)
-                {
-                    try
-                    {
-                        Process.Start(new ProcessStartInfo(Application.ExecutablePath) { Arguments = "-update", Verb = "runas" });
-                        Environment.Exit(0);
-                    }
-                    catch{ StartUpdater(); }
-                }
-                else
-                    StartUpdater();
-
-                return;
-            }
-
             Application.ApplicationExit += (s, e) => Closed = true;
 
             if (!File.Exists(Path.Combine(Environment.CurrentDirectory, "RAMTheme.ini")))

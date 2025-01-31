@@ -80,7 +80,7 @@ namespace RBX_Alt_Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://github.com/ic3w0lf22/Roblox-Account-Manager/releases/download/3.5.2/CEF.zip.
+        ///   Looks up a localized string similar to https://github.com/campionnn/Roblox-Account-Manager/releases/download/3.7.3/CEF.zip.
         /// </summary>
         internal static string CefSharpDownload {
             get {
@@ -199,22 +199,6 @@ namespace RBX_Alt_Manager.Properties {
                 return ResourceManager.GetString("ManualInstallHTML", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///
-        ///
-        ///if isfile and readfile and isfile(FileName) then -- Execute ASAP, update later.
-        ///
-        ///	if Function then
-        ///		Function()
-        ///
-        ///	end
-        ///end
-        ///
-        ///for i=1, 10 do
-        ///	Success, Error = pcall(function()
-        ///		local Response = (http_request or (syn and syn.request)) { Method = &apos;GET&apos;, Url = &apos;https://raw.githubusercontent.com/ic3w0lf22/Roblox-Accoun [rest of string was truncated]&quot;;.
-        /// </summary>
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
