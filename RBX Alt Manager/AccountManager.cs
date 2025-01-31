@@ -58,7 +58,6 @@ namespace RBX_Alt_Manager
         private ImportForm ImportAccountsForm;
         private AccountFields FieldsForm;
         private ThemeEditor ThemeForm;
-        private AccountControl ControlForm;
         private SettingsForm SettingsForm;
         private RecentGamesForm RGForm;
         private readonly static DateTime startTime = DateTime.Now;
@@ -158,11 +157,6 @@ namespace RBX_Alt_Manager
             if (!WebServer.Exists("Password")) WebServer.Set("Password", ""); else WSPassword = WebServer.Get("Password");
             if (!WebServer.Exists("EveryRequestRequiresPassword")) WebServer.Set("EveryRequestRequiresPassword", "false");
             if (!WebServer.Exists("AllowExternalConnections")) WebServer.Set("AllowExternalConnections", "false");
-
-            if (!AccountControl.Exists("AllowExternalConnections")) AccountControl.Set("AllowExternalConnections", "false");
-            if (!AccountControl.Exists("RelaunchDelay")) AccountControl.Set("RelaunchDelay", "60");
-            if (!AccountControl.Exists("LauncherDelayNumber")) AccountControl.Set("LauncherDelayNumber", "9");
-            if (!AccountControl.Exists("NexusPort")) AccountControl.Set("NexusPort", "5242");
 
             InitializeComponent();
             this.Rescale();
@@ -690,59 +684,6 @@ namespace RBX_Alt_Manager
             if (General.Get<bool>("HideUsernames"))
                 HideUsernamesCheckbox.Checked = true;
 
-            if (General.Get<bool>("CheckForUpdates"))
-            {
-                Task.Run(() =>
-                {
-                    try
-                    {
-                        ServicePointManager.Expect100Continue = true;
-                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
-
-                        WebClient WC = new WebClient();
-                        Assembly assembly = Assembly.GetExecutingAssembly();
-                        FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-                        WC.Headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36";
-                        string Releases = WC.DownloadString("https://api.github.com/repos/ic3w0lf22/Roblox-Account-Manager/releases/latest");
-                        Match match = Regex.Match(Releases, @"""tag_name"":\s*""?([^""]+)");
-
-                        if (match.Success)
-                        {
-                            string Current = fvi.FileVersion.TrimEnd('.', '0').Replace(".", string.Empty);
-                            string New = match.Groups[1].Value.TrimEnd('.', '0').Replace(".", string.Empty);
-
-                            if (Current.Length > New.Length)
-                                New = New.PadRight(Current.Length, '0');
-                            else if (New.Length > Current.Length)
-                                Current = Current.PadRight(New.Length, '0');
-
-                            if (double.TryParse(New, out double NV) && double.TryParse(Current, out double CV) && NV > CV)
-                            {
-                                bool ShouldUpdate = Utilities.YesNoPrompt("Roblox Account Manager", "An update is available", "Would you like to update now?");
-
-                                if (ShouldUpdate)
-                                {
-                                    File.WriteAllBytes(AFN, File.ReadAllBytes(Application.ExecutablePath));
-                                    Process.Start(AFN, "-update");
-                                    Environment.Exit(1);
-                                    //if (File.Exists(AFN))
-                                    //{
-                                    //    Process.Start(AFN, "skip");
-                                    //    Environment.Exit(1);
-                                    //}
-                                    //else
-                                    //{
-                                    //    MessageBox.Show("You do not have the auto updater downloaded, go to the github page and download the latest release.");
-                                    //    Process.Start("https://github.com/ic3w0lf22/Roblox-Account-Manager/releases");
-                                    //}
-                                }
-                            }
-                        }
-                    }
-                    catch { }
-                });
-            }
-
             if (!General.Get<bool>("DisableAgingAlert"))
                 Username.Renderer = new AccountRenderer();
 
@@ -847,7 +788,6 @@ namespace RBX_Alt_Manager
             ThemeForm.ApplyTheme();
             RGForm.ApplyTheme();
 
-            ControlForm?.ApplyTheme();
             SettingsForm?.ApplyTheme();
         }
 
@@ -921,7 +861,7 @@ namespace RBX_Alt_Manager
 
             if (WebServer.Get<bool>("EveryRequestRequiresPassword") && (WSPassword.Length < 6 || Password != WSPassword)) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
-            if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "FollowUser") && ((WSPassword != null && WSPassword.Length < 6) || (Password != null && Password != WSPassword))) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
+            if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "FollowUser") && ((WSPassword.Length < 6) || (Password != WSPassword))) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
             if (Method == "GetAccounts")
             {
@@ -1246,9 +1186,6 @@ namespace RBX_Alt_Manager
                     });
                 }
             }
-
-            if (AccountControl.Get<bool>("StartOnLaunch"))
-                LaunchNexus.PerformClick();
         }
 
         public bool UpdateMultiRoblox()
@@ -1974,28 +1911,6 @@ namespace RBX_Alt_Manager
             ThemeForm.Show();
         }
 
-        private void LaunchNexus_Click(object sender, EventArgs e)
-        {
-            if (ControlForm != null)
-            {
-                ControlForm.Top = Bottom;
-                ControlForm.Left = Left;
-                ControlForm.Show();
-                ControlForm.BringToFront();
-            }
-            else
-            {
-                ControlForm = new AccountControl
-                {
-                    StartPosition = FormStartPosition.Manual,
-                    Top = Bottom,
-                    Left = Left
-                };
-                ControlForm.Show();
-                ControlForm.ApplyTheme();
-            }
-        }
-
         private async Task LaunchAccounts(List<Account> Accounts, long PlaceID, string JobID, bool FollowUser = false, bool VIPServer = false)
         {
             int Delay = General.Exists("AccountJoinDelay") ? General.Get<int>("AccountJoinDelay") : 8;
@@ -2047,9 +1962,6 @@ namespace RBX_Alt_Manager
 
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e) =>
             MessageBox.Show("Groups can be sorted by naming them a number then whatever you want.\nFor example: You can put Group Apple on top by naming it '001 Apple' or '1Apple'.\nThe numbers will be hidden from the name but will be correctly sorted depending on the number.\nAccounts can also be dragged into groups.", "Roblox Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        private void DonateButton_Click(object sender, EventArgs e) =>
-            Process.Start("https://ic3w0lf22.github.io/donate.html");
 
         private void ConfigButton_Click(object sender, EventArgs e)
         {

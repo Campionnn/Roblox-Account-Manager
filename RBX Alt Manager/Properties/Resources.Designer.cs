@@ -201,17 +201,13 @@ namespace RBX_Alt_Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nexus_Version = 104
         ///
-        ///local FileName, Success, Error, Function = &apos;ic3w0lf22.Nexus.lua&apos;
         ///
         ///if isfile and readfile and isfile(FileName) then -- Execute ASAP, update later.
-        ///	Function, Error = loadstring(readfile(FileName), &apos;Nexus&apos;)
         ///
         ///	if Function then
         ///		Function()
         ///
-        ///		if Nexus then Nexus:Connect() end
         ///	end
         ///end
         ///
@@ -219,11 +215,6 @@ namespace RBX_Alt_Manager.Properties {
         ///	Success, Error = pcall(function()
         ///		local Response = (http_request or (syn and syn.request)) { Method = &apos;GET&apos;, Url = &apos;https://raw.githubusercontent.com/ic3w0lf22/Roblox-Accoun [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NexusLoader {
-            get {
-                return ResourceManager.GetString("NexusLoader", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
