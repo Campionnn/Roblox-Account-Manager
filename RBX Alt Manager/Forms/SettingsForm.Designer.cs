@@ -33,7 +33,6 @@ namespace RBX_Alt_Manager.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.SettingsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.AutoUpdateCB = new System.Windows.Forms.CheckBox();
             this.AsyncJoinCB = new System.Windows.Forms.CheckBox();
             this.DelayLabel = new System.Windows.Forms.Label();
             this.LaunchDelayNumber = new System.Windows.Forms.NumericUpDown();
@@ -77,8 +76,8 @@ namespace RBX_Alt_Manager.Forms
             this.FPSCapLabel = new System.Windows.Forms.Label();
             this.MaxFPSValue = new System.Windows.Forms.NumericUpDown();
             this.OverrideWithCustomCB = new System.Windows.Forms.CheckBox();
-            this.CustomClientSettingsDialog = new System.Windows.Forms.OpenFileDialog();
             this.ForceUpdateButton = new System.Windows.Forms.Button();
+            this.CustomClientSettingsDialog = new System.Windows.Forms.OpenFileDialog();
             this.SettingsLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaunchDelayNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxRecentGamesNumber)).BeginInit();
@@ -95,7 +94,6 @@ namespace RBX_Alt_Manager.Forms
             // 
             // SettingsLayoutPanel
             // 
-            this.SettingsLayoutPanel.Controls.Add(this.AutoUpdateCB);
             this.SettingsLayoutPanel.Controls.Add(this.AsyncJoinCB);
             this.SettingsLayoutPanel.Controls.Add(this.DelayLabel);
             this.SettingsLayoutPanel.Controls.Add(this.LaunchDelayNumber);
@@ -119,22 +117,10 @@ namespace RBX_Alt_Manager.Forms
             this.SettingsLayoutPanel.Size = new System.Drawing.Size(303, 334);
             this.SettingsLayoutPanel.TabIndex = 0;
             // 
-            // AutoUpdateCB
-            // 
-            this.AutoUpdateCB.AutoSize = true;
-            this.SettingsLayoutPanel.SetFlowBreak(this.AutoUpdateCB, true);
-            this.AutoUpdateCB.Location = new System.Drawing.Point(15, 15);
-            this.AutoUpdateCB.Name = "AutoUpdateCB";
-            this.AutoUpdateCB.Size = new System.Drawing.Size(115, 17);
-            this.AutoUpdateCB.TabIndex = 0;
-            this.AutoUpdateCB.Text = "Check for Updates";
-            this.AutoUpdateCB.UseVisualStyleBackColor = true;
-            this.AutoUpdateCB.CheckedChanged += new System.EventHandler(this.AutoUpdateCB_CheckedChanged);
-            // 
             // AsyncJoinCB
             // 
             this.AsyncJoinCB.AutoSize = true;
-            this.AsyncJoinCB.Location = new System.Drawing.Point(15, 38);
+            this.AsyncJoinCB.Location = new System.Drawing.Point(15, 15);
             this.AsyncJoinCB.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.AsyncJoinCB.Name = "AsyncJoinCB";
             this.AsyncJoinCB.Size = new System.Drawing.Size(108, 17);
@@ -148,7 +134,7 @@ namespace RBX_Alt_Manager.Forms
             // DelayLabel
             // 
             this.DelayLabel.AutoSize = true;
-            this.DelayLabel.Location = new System.Drawing.Point(146, 39);
+            this.DelayLabel.Location = new System.Drawing.Point(146, 16);
             this.DelayLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
             this.DelayLabel.Name = "DelayLabel";
             this.DelayLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -159,7 +145,7 @@ namespace RBX_Alt_Manager.Forms
             // LaunchDelayNumber
             // 
             this.SettingsLayoutPanel.SetFlowBreak(this.LaunchDelayNumber, true);
-            this.LaunchDelayNumber.Location = new System.Drawing.Point(225, 36);
+            this.LaunchDelayNumber.Location = new System.Drawing.Point(225, 13);
             this.LaunchDelayNumber.Margin = new System.Windows.Forms.Padding(3, 1, 3, 0);
             this.LaunchDelayNumber.Maximum = new decimal(new int[] {
             60,
@@ -180,7 +166,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.SavePasswordCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.SavePasswordCB, true);
-            this.SavePasswordCB.Location = new System.Drawing.Point(15, 61);
+            this.SavePasswordCB.Location = new System.Drawing.Point(15, 38);
             this.SavePasswordCB.Name = "SavePasswordCB";
             this.SavePasswordCB.Size = new System.Drawing.Size(105, 17);
             this.SavePasswordCB.TabIndex = 2;
@@ -193,7 +179,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.DisableAgingAlertCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.DisableAgingAlertCB, true);
-            this.DisableAgingAlertCB.Location = new System.Drawing.Point(15, 84);
+            this.DisableAgingAlertCB.Location = new System.Drawing.Point(15, 61);
             this.DisableAgingAlertCB.Name = "DisableAgingAlertCB";
             this.DisableAgingAlertCB.Size = new System.Drawing.Size(115, 17);
             this.DisableAgingAlertCB.TabIndex = 3;
@@ -207,7 +193,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.HideMRobloxCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.HideMRobloxCB, true);
-            this.HideMRobloxCB.Location = new System.Drawing.Point(15, 107);
+            this.HideMRobloxCB.Location = new System.Drawing.Point(15, 84);
             this.HideMRobloxCB.Name = "HideMRobloxCB";
             this.HideMRobloxCB.Size = new System.Drawing.Size(133, 17);
             this.HideMRobloxCB.TabIndex = 4;
@@ -219,7 +205,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.StartOnPCStartup.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.StartOnPCStartup, true);
-            this.StartOnPCStartup.Location = new System.Drawing.Point(15, 130);
+            this.StartOnPCStartup.Location = new System.Drawing.Point(15, 107);
             this.StartOnPCStartup.Name = "StartOnPCStartup";
             this.StartOnPCStartup.Size = new System.Drawing.Size(145, 17);
             this.StartOnPCStartup.TabIndex = 21;
@@ -231,7 +217,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.ShuffleLowestServerCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.ShuffleLowestServerCB, true);
-            this.ShuffleLowestServerCB.Location = new System.Drawing.Point(15, 153);
+            this.ShuffleLowestServerCB.Location = new System.Drawing.Point(15, 130);
             this.ShuffleLowestServerCB.Name = "ShuffleLowestServerCB";
             this.ShuffleLowestServerCB.Size = new System.Drawing.Size(174, 17);
             this.ShuffleLowestServerCB.TabIndex = 22;
@@ -243,7 +229,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.MultiRobloxCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.MultiRobloxCB, true);
-            this.MultiRobloxCB.Location = new System.Drawing.Point(15, 176);
+            this.MultiRobloxCB.Location = new System.Drawing.Point(15, 153);
             this.MultiRobloxCB.Name = "MultiRobloxCB";
             this.MultiRobloxCB.Size = new System.Drawing.Size(84, 17);
             this.MultiRobloxCB.TabIndex = 24;
@@ -255,7 +241,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.AutoCookieRefreshCB.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.AutoCookieRefreshCB, true);
-            this.AutoCookieRefreshCB.Location = new System.Drawing.Point(15, 199);
+            this.AutoCookieRefreshCB.Location = new System.Drawing.Point(15, 176);
             this.AutoCookieRefreshCB.Name = "AutoCookieRefreshCB";
             this.AutoCookieRefreshCB.Size = new System.Drawing.Size(129, 17);
             this.AutoCookieRefreshCB.TabIndex = 25;
@@ -267,7 +253,7 @@ namespace RBX_Alt_Manager.Forms
             // RegionFormatLabel
             // 
             this.RegionFormatLabel.AutoSize = true;
-            this.RegionFormatLabel.Location = new System.Drawing.Point(15, 223);
+            this.RegionFormatLabel.Location = new System.Drawing.Point(15, 200);
             this.RegionFormatLabel.Margin = new System.Windows.Forms.Padding(3, 4, 35, 0);
             this.RegionFormatLabel.Name = "RegionFormatLabel";
             this.RegionFormatLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -279,7 +265,7 @@ namespace RBX_Alt_Manager.Forms
             // RegionFormatTB
             // 
             this.SettingsLayoutPanel.SetFlowBreak(this.RegionFormatTB, true);
-            this.RegionFormatTB.Location = new System.Drawing.Point(129, 222);
+            this.RegionFormatTB.Location = new System.Drawing.Point(129, 199);
             this.RegionFormatTB.Name = "RegionFormatTB";
             this.RegionFormatTB.Size = new System.Drawing.Size(152, 20);
             this.RegionFormatTB.TabIndex = 18;
@@ -289,7 +275,7 @@ namespace RBX_Alt_Manager.Forms
             // MRGLabel
             // 
             this.MRGLabel.AutoSize = true;
-            this.MRGLabel.Location = new System.Drawing.Point(15, 249);
+            this.MRGLabel.Location = new System.Drawing.Point(15, 226);
             this.MRGLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
             this.MRGLabel.Name = "MRGLabel";
             this.MRGLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -300,7 +286,7 @@ namespace RBX_Alt_Manager.Forms
             // MaxRecentGamesNumber
             // 
             this.SettingsLayoutPanel.SetFlowBreak(this.MaxRecentGamesNumber, true);
-            this.MaxRecentGamesNumber.Location = new System.Drawing.Point(129, 246);
+            this.MaxRecentGamesNumber.Location = new System.Drawing.Point(129, 223);
             this.MaxRecentGamesNumber.Margin = new System.Windows.Forms.Padding(10, 1, 3, 0);
             this.MaxRecentGamesNumber.Maximum = new decimal(new int[] {
             30,
@@ -326,7 +312,7 @@ namespace RBX_Alt_Manager.Forms
             // 
             this.RSLabel.AutoSize = true;
             this.SettingsLayoutPanel.SetFlowBreak(this.RSLabel, true);
-            this.RSLabel.Location = new System.Drawing.Point(15, 270);
+            this.RSLabel.Location = new System.Drawing.Point(15, 247);
             this.RSLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
             this.RSLabel.Name = "RSLabel";
             this.RSLabel.Size = new System.Drawing.Size(263, 26);
@@ -337,7 +323,7 @@ namespace RBX_Alt_Manager.Forms
             // EncryptionSelectionButton
             // 
             this.SettingsLayoutPanel.SetFlowBreak(this.EncryptionSelectionButton, true);
-            this.EncryptionSelectionButton.Location = new System.Drawing.Point(15, 299);
+            this.EncryptionSelectionButton.Location = new System.Drawing.Point(15, 276);
             this.EncryptionSelectionButton.Name = "EncryptionSelectionButton";
             this.EncryptionSelectionButton.Size = new System.Drawing.Size(263, 23);
             this.EncryptionSelectionButton.TabIndex = 23;
@@ -703,12 +689,6 @@ namespace RBX_Alt_Manager.Forms
             this.OverrideWithCustomCB.UseVisualStyleBackColor = true;
             this.OverrideWithCustomCB.CheckedChanged += new System.EventHandler(this.OverrideWithCustomCB_CheckedChanged);
             // 
-            // CustomClientSettingsDialog
-            // 
-            this.CustomClientSettingsDialog.DefaultExt = "json";
-            this.CustomClientSettingsDialog.FileName = "ClientAppSettings.json";
-            this.CustomClientSettingsDialog.Filter = "Json Files|*.json|All Files|*.*";
-            // 
             // ForceUpdateButton
             // 
             this.ForceUpdateButton.Location = new System.Drawing.Point(15, 84);
@@ -718,6 +698,12 @@ namespace RBX_Alt_Manager.Forms
             this.ForceUpdateButton.Text = "Force Update";
             this.ForceUpdateButton.UseVisualStyleBackColor = true;
             this.ForceUpdateButton.Click += new System.EventHandler(this.ForceUpdateButton_Click);
+            // 
+            // CustomClientSettingsDialog
+            // 
+            this.CustomClientSettingsDialog.DefaultExt = "json";
+            this.CustomClientSettingsDialog.FileName = "ClientAppSettings.json";
+            this.CustomClientSettingsDialog.Filter = "Json Files|*.json|All Files|*.*";
             // 
             // SettingsForm
             // 
@@ -753,7 +739,6 @@ namespace RBX_Alt_Manager.Forms
 #endregion
 
         private System.Windows.Forms.FlowLayoutPanel SettingsLayoutPanel;
-        private System.Windows.Forms.CheckBox AutoUpdateCB;
         private System.Windows.Forms.CheckBox AsyncJoinCB;
         private System.Windows.Forms.CheckBox SavePasswordCB;
         private System.Windows.Forms.CheckBox DisableAgingAlertCB;

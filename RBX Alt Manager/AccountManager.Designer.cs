@@ -71,7 +71,6 @@ namespace RBX_Alt_Manager
             this.copyAppLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideUsernamesCheckbox = new System.Windows.Forms.CheckBox();
             this.BrowserButton = new System.Windows.Forms.Button();
-            this.ArgumentsB = new System.Windows.Forms.Button();
             this.CurrentPlace = new System.Windows.Forms.Label();
             this.LabelPlaceID = new System.Windows.Forms.Label();
             this.PlaceTimer = new System.Windows.Forms.Timer(this.components);
@@ -467,18 +466,6 @@ namespace RBX_Alt_Manager
             this.BrowserButton.Text = "Account Utilities";
             this.BrowserButton.UseVisualStyleBackColor = true;
             this.BrowserButton.Click += new System.EventHandler(this.BrowserButton_Click);
-            // 
-            // ArgumentsB
-            // 
-            this.ArgumentsB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ArgumentsB.Location = new System.Drawing.Point(691, 7);
-            this.ArgumentsB.Name = "ArgumentsB";
-            this.ArgumentsB.Size = new System.Drawing.Size(23, 23);
-            this.ArgumentsB.TabIndex = 5;
-            this.ArgumentsB.Text = "A";
-            this.ArgumentsB.UseVisualStyleBackColor = true;
-            this.ArgumentsB.Visible = false;
-            this.ArgumentsB.Click += new System.EventHandler(this.ArgumentsB_Click);
             // 
             // CurrentPlace
             // 
@@ -1040,7 +1027,6 @@ namespace RBX_Alt_Manager
             this.Controls.Add(this.OpenBrowser);
             this.Controls.Add(this.JoinDiscord);
             this.Controls.Add(this.CurrentPlace);
-            this.Controls.Add(this.ArgumentsB);
             this.Controls.Add(this.BrowserButton);
             this.Controls.Add(this.HideUsernamesCheckbox);
             this.Controls.Add(this.ServerList);
@@ -1111,7 +1097,6 @@ namespace RBX_Alt_Manager
         private System.Windows.Forms.ToolStripMenuItem copyUsernameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copySecurityTokenToolStripMenuItem;
         private System.Windows.Forms.Button BrowserButton;
-        private System.Windows.Forms.Button ArgumentsB;
         private System.Windows.Forms.Label CurrentPlace;
         private System.Windows.Forms.Label LabelPlaceID;
         private System.Windows.Forms.Timer PlaceTimer;

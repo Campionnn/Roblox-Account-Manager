@@ -75,7 +75,6 @@ namespace RBX_Alt_Manager
         public static IniSection General;
         public static IniSection Developer;
         public static IniSection WebServer;
-        public static IniSection AccountControl;
         public static IniSection Watcher;
         public static IniSection Prompts;
 
@@ -113,15 +112,14 @@ namespace RBX_Alt_Manager
             General = IniSettings.Section("General");
             Developer = IniSettings.Section("Developer");
             WebServer = IniSettings.Section("WebServer");
-            AccountControl = IniSettings.Section("AccountControl");
             Watcher = IniSettings.Section("Watcher");
             Prompts = IniSettings.Section("Prompts");
 
-            if (!General.Exists("CheckForUpdates")) General.Set("CheckForUpdates", "true");
             if (!General.Exists("AccountJoinDelay")) General.Set("AccountJoinDelay", "8");
             if (!General.Exists("AsyncJoin")) General.Set("AsyncJoin", "false");
             if (!General.Exists("DisableAgingAlert")) General.Set("DisableAgingAlert", "false");
             if (!General.Exists("SavePasswords")) General.Set("SavePasswords", "true");
+            if (!General.Exists("EnableMultiRbx")) General.Set("EnableMultiRbx", "true");
             if (!General.Exists("ServerRegionFormat")) General.Set("ServerRegionFormat", "<city>, <countryCode>", "Visit http://ip-api.com/json/1.1.1.1 to see available format options");
             if (!General.Exists("MaxRecentGames")) General.Set("MaxRecentGames", "8");
             if (!General.Exists("ShuffleChoosesLowestServer")) General.Set("ShuffleChoosesLowestServer", "false");
@@ -147,12 +145,12 @@ namespace RBX_Alt_Manager
             if (!General.Exists("UseCefSharpBrowser")) General.Set("UseCefSharpBrowser", "false");
 
             if (!Developer.Exists("DevMode")) Developer.Set("DevMode", "false");
-            if (!Developer.Exists("EnableWebServer")) Developer.Set("EnableWebServer", "false");
+            if (!Developer.Exists("EnableWebServer")) Developer.Set("EnableWebServer", "true");
 
             if (!WebServer.Exists("WebServerPort")) WebServer.Set("WebServerPort", "7963");
             if (!WebServer.Exists("AllowGetCookie")) WebServer.Set("AllowGetCookie", "false");
             if (!WebServer.Exists("AllowGetAccounts")) WebServer.Set("AllowGetAccounts", "false");
-            if (!WebServer.Exists("AllowLaunchAccount")) WebServer.Set("AllowLaunchAccount", "false");
+            if (!WebServer.Exists("AllowLaunchAccount")) WebServer.Set("AllowLaunchAccount", "true");
             if (!WebServer.Exists("AllowAccountEditing")) WebServer.Set("AllowAccountEditing", "false");
             if (!WebServer.Exists("Password")) WebServer.Set("Password", ""); else WSPassword = WebServer.Get("Password");
             if (!WebServer.Exists("EveryRequestRequiresPassword")) WebServer.Set("EveryRequestRequiresPassword", "false");
@@ -678,8 +676,6 @@ namespace RBX_Alt_Manager
                 AccountsStrip.Items.Remove(copySecurityTokenToolStripMenuItem);
                 AccountsStrip.Items.Remove(copyAppLinkToolStripMenuItem);
             }
-            else
-                ArgumentsB.Visible = true;
 
             if (General.Get<bool>("HideUsernames"))
                 HideUsernamesCheckbox.Checked = true;
@@ -1596,14 +1592,6 @@ namespace RBX_Alt_Manager
             }
         }
 
-        private void ArgumentsB_Click(object sender, EventArgs e)
-        {
-            if (afform != null)
-                if (afform.Visible)
-                    afform.HideForm();
-                else
-                    afform.ShowForm();
-        }
 
         private void copySecurityTokenToolStripMenuItem_Click(object sender, EventArgs e)
         {

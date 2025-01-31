@@ -23,7 +23,6 @@ namespace RBX_Alt_Manager.Forms
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            AutoUpdateCB.Checked = AccountManager.General.Get<bool>("CheckForUpdates");
             AsyncJoinCB.Checked = AccountManager.General.Get<bool>("AsyncJoin");
             LaunchDelayNumber.Value = AccountManager.General.Get<decimal>("AccountJoinDelay");
             SavePasswordCB.Checked = AccountManager.General.Get<bool>("SavePasswords");
@@ -79,14 +78,6 @@ namespace RBX_Alt_Manager.Forms
         }
 
         #region General
-
-        private void AutoUpdateCB_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!SettingsLoaded) return;
-
-            AccountManager.General.Set("CheckForUpdates", AutoUpdateCB.Checked ? "true" : "false");
-            AccountManager.IniSettings.Save("RAMSettings.ini");
-        }
 
         private void AsyncJoinCB_CheckedChanged(object sender, EventArgs e)
         {
