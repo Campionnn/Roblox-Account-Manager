@@ -857,6 +857,11 @@ namespace RBX_Alt_Manager
 
             if (WebServer.Get<bool>("EveryRequestRequiresPassword") && (WSPassword.Length < 6 || Password != WSPassword)) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
+            if (Method == "CheckVersion")
+            {
+                return Reply("1.0.0", true);
+            }
+            
             if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "FollowUser") && ((WSPassword.Length < 6) || (Password != WSPassword))) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
             if (Method == "GetAccounts")
