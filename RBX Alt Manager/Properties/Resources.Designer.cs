@@ -71,7 +71,7 @@ namespace RBX_Alt_Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5E0BA1895CF088E6D6907B8ABBD8CD41C86F39CC642351A9AB0BF458BF1F5B31.
+        ///   Looks up a localized string similar to 0DA6748EA386B68C9C787A2F1185BF447D55A6B1845E4433E0FC18948833D5C4.
         /// </summary>
         internal static string AppConfigHash {
             get {

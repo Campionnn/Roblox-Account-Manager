@@ -861,8 +861,8 @@ namespace RBX_Alt_Manager
             {
                 return Reply("1.0.0", true);
             }
-            
-            if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "FollowUser") && ((WSPassword.Length < 6) || (Password != WSPassword))) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
+
+            if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "KillProcess") && ((WSPassword != null && WSPassword.Length < 6) || (Password != null && Password != WSPassword))) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
             if (Method == "GetAccounts")
             {
@@ -937,6 +937,7 @@ namespace RBX_Alt_Manager
 
             if (Method == "LaunchAccount")
             {
+                Console.WriteLine("hi");
                 if (!WebServer.Get<bool>("AllowLaunchAccount")) return Reply("Method `LaunchAccount` not allowed", false, 401, "Method not allowed");
 
                 bool ValidPlaceId = long.TryParse(request.QueryString["PlaceId"], out long PlaceId); if (!ValidPlaceId) return Reply("Invalid PlaceId provided", false, Raw: "Invalid PlaceId");

@@ -179,7 +179,7 @@ TextBoxesBC=#282828</value>
     <value>..\app.config;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AppConfigHash" xml:space="preserve">
-    <value>5E0BA1895CF088E6D6907B8ABBD8CD41C86F39CC642351A9AB0BF458BF1F5B31</value>
+    <value>0DA6748EA386B68C9C787A2F1185BF447D55A6B1845E4433E0FC18948833D5C4</value>
   </data>
   <data name="log4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\log4.config;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -78,13 +78,7 @@ namespace RBX_Alt_Manager
             }
             catch { }
 
-#if DEBUG
-            bool IsAutoUpdater = true;
-#else
-            bool IsAutoUpdater = Application.ExecutablePath.EndsWith("Auto Update.exe");
-#endif
-
-            if (!IsAutoUpdater && !File.Exists($"{Application.ExecutablePath}.config"))
+            if (!File.Exists($"{Application.ExecutablePath}.config"))
             {
                 var Parent = Directory.GetParent(Application.ExecutablePath);
                 var Files = Parent.GetFiles();
